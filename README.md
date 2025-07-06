@@ -1,102 +1,112 @@
-# Code Practice App (Java OOP & Persistence)
+# Code Practice App
 
-A console-based Java application showcasing core Object-Oriented Programming concepts, custom data structures, exception handling, and simple file persistence.
-
----
+A simple command-line application for practicing coding challenges and tracking your progress.
 
 ## 🎯 Overview
 
-This project functions as a lightweight college/admin management system with support for multiple entity types (students, lecturers, professors, doctors, researchers). It demonstrates:
+The Code Practice App helps developers sharpen their algorithmic and problem-solving skills in a familiar CLI environment. It provides:
 
-* **Inheritance & Interfaces**: Shared behaviors via `IEmployable`, abstract classes, and concrete subclasses.
-* **Custom Collections**: `CustomArray<T>` for dynamic storage.
-* **Exception Handling**: Domain-specific exceptions (`ValidationException`, `NullInputException`, `DuplicateEntityException`, `EntityNotFoundException`, `AppException`).
-* **Persistence Layer**: Serialize/deserialize `College` object graph to `.dat` files with `Persistence` utility.
-* **Modular Design**: Separation of concerns across packages (`app`, `models`, `utils`).
-
----
-
-## 🛠️ Features
-
-* **Add / Remove / Search Entities**
-* **Type-safe storage** using a generic array wrapper
-* **Custom input validation** with clear error messages
-* **File-based persistence** via Java Serialization
-* **Extensible architecture** for future entity types
+* A collection of coding challenges across various categories (e.g., arrays, strings, sorting).
+* An interactive interface to select and run challenges.
+* Progress tracking to record completed problems and timestamps.
+* A modular design for easy extension and addition of new challenges.
 
 ---
 
-## 📁 Project Structure
+## 🚀 Features
 
-```
-CodePracticeApp/
-├── src/
-│   └── app/
-│       ├── Main.java                # Entry point & menu handling
-│       ├── Persistence.java         # Load/save utilities
-│       └── exceptions/              # Custom exception classes
-│           ├── AppException.java
-│           ├── DuplicateEntityException.java
-│           ├── EntityNotFoundException.java
-│           ├── NullInputException.java
-│           └── ValidationException.java
-│   └── models/
-│       ├── College.java             # Root domain container
-│       ├── Person.java              # Abstract base class
-│       ├── IEmployable.java         # Interface for employable entities
-│       ├── Lecturer.java            # Implements IEmployable
-│       ├── Professor.java
-│       ├── Doctor.java
-│       ├── Researcher.java
-│       ├── Department.java
-│       ├── Degree.java
-│       └── Committee.java
-│   └── utils/
-│       └── CustomArray.java         # Generic dynamic array
-└── README.md                         # Project documentation
+* **Interactive CLI**: Navigate menus and select problems to solve.
+* **Multiple Categories**: Algorithms grouped by topic (Arrays, Linked Lists, Recursion, etc.).
+* **Automated Testing**: Built-in test cases to verify your solutions.
+* **Progress Tracking**: Records solved challenges in a local JSON file.
+* **Extensible Architecture**: Easily add new problems by following a template.
+
+---
+
+## 🏗️ Project Structure
+
+```bash
+code-practice-app/
+├── challenges/           # Challenge modules (one file per problem)
+│   ├── array_sum.py
+│   ├── binary_search.py
+│   └── ...
+├── data/                 # Local storage for progress tracking
+│   └── progress.json
+├── tests/                # Unit tests for each challenge
+│   └── test_array_sum.py
+├── cli.py                # Main entry point and menu logic
+├── utils.py              # Helper functions and common utilities
+├── requirements.txt      # Python dependencies
+└── README.md             # Project documentation
 ```
 
 ---
 
-## ⚙️ Build & Run
+## ⚙️ Installation
 
-1. **Compile sources**
+1. **Clone the repository**
 
    ```bash
-   javac -d out src/app/*.java src/models/*.java src/utils/*.java
+   git clone https://github.com/Eytan1606/code-practice-app.git
+   cd code-practice-app
    ```
-2. **Run application**
+
+2. **Set up a virtual environment (optional but recommended)**
 
    ```bash
-   java -cp out app.Main
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use `venv\\Scripts\\activate`
    ```
-3. **Follow the console menu** to add, list, delete, or search entities. Data is saved to `<CollegeName>.dat` files in the working directory.
+
+3. **Install dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ---
 
-## 🧪 Usage Example
+## 🎮 Usage
 
-```
-1) Create New College
-2) Add Lecturer
-3) Add Student
-4) View All Entities
-5) Save & Exit
-Enter choice: 2
-> Enter Lecturer ID: L001
-> Enter Name: Dr. Smith
-> Enter Department: Computer Science
-Lecturer added successfully.
-```
+* **Start the CLI**
+
+  ```bash
+  python cli.py
+  ```
+
+* Follow the on-screen menu to:
+
+  1. Select a challenge category.
+  2. Choose a specific problem.
+  3. Edit the solution template and run tests.
+  4. View your progress and solved problems.
+
+* **Run all tests**
+
+  ```bash
+  pytest
+  ```
+
+---
+
+## ✨ Adding New Challenges
+
+1. Create a new Python file in `challenges/`, e.g. `unique_paths.py`.
+2. Implement your function with a clear docstring.
+3. Add corresponding unit tests in `tests/`, e.g. `test_unique_paths.py`.
+4. Register the challenge in `cli.py` menu structure.
 
 ---
 
 ## 👨‍💻 Author
 
-**Eytan Cabalero** (GitHub: [@Eytan1606](https://github.com/Eytan1606))
+**Eytan Cabalero**
+GitHub: [@Eytan1606](https://github.com/Eytan1606)
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License © 2025 Eytan Cabalero
+Distributed under the MIT License. See `LICENSE` for more information.
+
